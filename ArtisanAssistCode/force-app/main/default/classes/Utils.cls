@@ -1,5 +1,5 @@
 /*
- * Artisan Assistance Utility class with useful methods used thoughout the code base.
+ * Artisan Assist Utility class with useful methods used thoughout the code base.
  *
  * @author Richard Clarke (based on prior work by Mohamed Atheek)
  * @date 10/07/2017 
@@ -142,9 +142,9 @@ public class Utils {
     }
     
     public static Messaging.SendEmailResult sendArtisanAssistanceTextEmail( String subject, String emailBody ){
-        return sendTextEmail('artisan.assistance@pscgroup.com.au', // to address
-                            'artisan.assistance@pscgroup.com.au', // reply to
-                            'Artisan Assistance App', 
+        return sendTextEmail('artisan.assist@pscgroup.com.au', // to address
+                            'artisan.assist@pscgroup.com.au', // reply to
+                            'Artisan Assist App', 
                             subject, 
                             emailBody);
     }

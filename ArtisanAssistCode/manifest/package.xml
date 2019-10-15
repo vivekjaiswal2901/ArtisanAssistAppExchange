@@ -25,8 +25,64 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
+        <members>Artisan_Assist</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Apex_Log__c</members>
+        <members>Assistance_Request__c</members>
+        <members>Question_Answer__c</members>
+        <name>CustomObject</name>
+    </types>    
+    <types>
+        <members>Apex_Log__c</members>
+        <members>Assistance_Request__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>ArtisanAssistDashboards</members>
+        <members>ArtisanAssistDashboards/Assistance_Requests</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>Assistance_Request_Record_Page</members>
+        <members>Question_Answer_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>    
+    <types>
         <members>*</members>
         <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>Apex_Log__c-Artisan Assist Apex Log Layout</members>
+        <members>Assistance_Request__c-Assistance Request Layout</members>
+        <members>Question_Answer__c-Artisan Asked Question %26 Answer Layout</members>
+        <members>Question_Answer__c-Customer Asked Question %26 Answer Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Assistance_Request__c.Ask_Question</members>
+        <members>Assistance_Request__c.New_Artisan_Assistance_Task</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>ArtisanAssistReports</members>
+        <members>ArtisanAssistReports/Active_Requests_All</members>
+        <members>ArtisanAssistReports/Active_Requests_by_Stage</members>
+        <members>ArtisanAssistReports/Active_Requests_Top_50</members>
+        <members>ArtisanAssistReports/Active_Requests_with_Questions</members>
+        <members>ArtisanAssistReports/Open_Questions</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>Artisan_Assist_Questions_and_Answers</members>
+        <members>Assistance_Requests</members>
+        <members>Assistance_Requests_with_or_without_Questions</members>
+        <name>ReportType</name>
+    </types>
+    <types>
+        <members>Artisan_Assist_Rest_Services</members>
+        <name>RemoteSiteSetting</name>
     </types>
     <types>
         <members>*</members>

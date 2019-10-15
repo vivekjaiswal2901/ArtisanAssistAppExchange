@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phase__c</fullName>
+    <defaultValue>&#39;Draft&#39;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>The phase of the Request for Assistance based on the current stage.</inlineHelpText>
+    <label>Phase</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Stage_Name__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Draft</fullName>
+                <default>true</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Estimation</fullName>
+                <default>false</default>
+                <label>Estimation</label>
+            </value>
+            <value>
+                <fullName>Development</fullName>
+                <default>false</default>
+                <label>Development</label>
+            </value>
+            <value>
+                <fullName>Test</fullName>
+                <default>false</default>
+                <label>Test</label>
+            </value>
+            <value>
+                <fullName>Deployment</fullName>
+                <default>false</default>
+                <label>Deployment</label>
+            </value>
+            <value>
+                <fullName>Acceptance</fullName>
+                <default>false</default>
+                <label>Acceptance</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Being Tested</controllingFieldValue>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <valueName>Test</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Waiting for Deployment</controllingFieldValue>
+            <controllingFieldValue>Being Deployed</controllingFieldValue>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <valueName>Deployment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Waiting for Acceptance</controllingFieldValue>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <valueName>Acceptance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accepted as Complete</controllingFieldValue>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <valueName>Completed</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Cancelled</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Drafting</controllingFieldValue>
+            <valueName>Draft</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Waiting for Estimation</controllingFieldValue>
+            <controllingFieldValue>Being Estimated</controllingFieldValue>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <controllingFieldValue>Waiting for Approval</controllingFieldValue>
+            <valueName>Estimation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <controllingFieldValue>Waiting for Development</controllingFieldValue>
+            <controllingFieldValue>Being Developed</controllingFieldValue>
+            <valueName>Development</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

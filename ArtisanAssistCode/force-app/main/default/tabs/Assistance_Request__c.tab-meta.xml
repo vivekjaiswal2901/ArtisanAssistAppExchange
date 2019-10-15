@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>The Assistance Request tab is where you can create and manage your requests for assistance using the Artisan Assistance application</description>
+    <motif>Custom45: Ticket</motif>
+</CustomTab>

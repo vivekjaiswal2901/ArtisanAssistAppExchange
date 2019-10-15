@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance Question and Answer Replication Support using a queueable class enqueued from the trigger
+ * Artisan Assist Question and Answer Replication Support using a queueable class enqueued from the trigger
  * 
  * The current implementation does callouts for each record in two sets which could in some cases exceed callout limits
  * A future evolution would be to decide how many requests can be processed in one queued execution and chain here to

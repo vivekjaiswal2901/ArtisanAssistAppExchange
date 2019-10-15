@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance Package uninstall handler class that is executed after the package is uninstalled in the customer org.
+ * Artisan Assist Package uninstall handler class that is executed after the package is uninstalled in the customer org.
  * Emails customer org details to package owner.
  *
  * Note install handlers cannot throw exceptions

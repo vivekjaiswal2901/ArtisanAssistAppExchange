@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supported_Billing_Currencies</fullName>
+    <active>true</active>
+    <description>Force the request billing currency to be one which is supported</description>
+    <errorConditionFormula>NOT(ISPICKVAL( Preferred_Billing_Currency__c,&quot;AUD - Australian Dollar&quot;))</errorConditionFormula>
+    <errorDisplayField>Preferred_Billing_Currency__c</errorDisplayField>
+    <errorMessage>The billing currency must be AUD</errorMessage>
+</ValidationRule>

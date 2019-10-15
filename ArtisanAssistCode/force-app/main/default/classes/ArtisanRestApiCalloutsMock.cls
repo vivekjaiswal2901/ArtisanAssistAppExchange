@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance class to handle testing all callouts to the Artisan Production Org by mocking the response
+ * Artisan Assist class to handle testing all callouts to the Artisan Production Org by mocking the response
  *
  * @author Richard Clarke
  * @date 15/07/2019

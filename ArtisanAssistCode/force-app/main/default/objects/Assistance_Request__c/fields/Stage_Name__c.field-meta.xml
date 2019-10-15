@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage_Name__c</fullName>
+    <defaultValue>&#39;Drafting&#39;</defaultValue>
+    <externalId>false</externalId>
+    <inlineHelpText>The current stage in the delivery process for this Request for Assistance.</inlineHelpText>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Drafting</fullName>
+                <default>true</default>
+                <label>Drafting</label>
+            </value>
+            <value>
+                <fullName>Waiting for Estimation</fullName>
+                <default>false</default>
+                <label>Waiting for Estimation</label>
+            </value>
+            <value>
+                <fullName>Being Estimated</fullName>
+                <default>false</default>
+                <label>Being Estimated</label>
+            </value>
+            <value>
+                <fullName>Declined</fullName>
+                <default>false</default>
+                <label>Declined</label>
+            </value>
+            <value>
+                <fullName>Waiting for Approval</fullName>
+                <default>false</default>
+                <label>Waiting for Approval</label>
+            </value>
+            <value>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+                <label>Rejected</label>
+            </value>
+            <value>
+                <fullName>Waiting for Development</fullName>
+                <default>false</default>
+                <label>Waiting for Development</label>
+            </value>
+            <value>
+                <fullName>Being Developed</fullName>
+                <default>false</default>
+                <label>Being Developed</label>
+            </value>
+            <value>
+                <fullName>Being Tested</fullName>
+                <default>false</default>
+                <label>Being Tested</label>
+            </value>
+            <value>
+                <fullName>Waiting for Deployment</fullName>
+                <default>false</default>
+                <label>Waiting for Deployment</label>
+            </value>
+            <value>
+                <fullName>Being Deployed</fullName>
+                <default>false</default>
+                <label>Being Deployed</label>
+            </value>
+            <value>
+                <fullName>Waiting for Acceptance</fullName>
+                <default>false</default>
+                <label>Waiting for Acceptance</label>
+            </value>
+            <value>
+                <fullName>Accepted as Complete</fullName>
+                <default>false</default>
+                <label>Accepted as Complete</label>
+            </value>
+            <value>
+                <fullName>Waiting for Clarification</fullName>
+                <default>false</default>
+                <label>Waiting for Clarification</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

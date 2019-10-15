@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance package install handler class that is executed after 
+ * Artisan Assist package install handler class that is executed after 
  * the package is installed in the customer org.  The classes extracts data
  * about the customer org and sends that to PS+C Artisan.
  * 

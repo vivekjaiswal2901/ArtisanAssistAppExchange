@@ -1,5 +1,5 @@
 /*
- * Artisan Assistance Utility class with methods to support logging debug messages and exceptions to a custom object
+ * Artisan Assist Utility class with methods to support logging debug messages and exceptions to a custom object
  *
  * @author Richard Clarke (based on prior work by Mohamed Atheek)
  * @date 15/07/2017 

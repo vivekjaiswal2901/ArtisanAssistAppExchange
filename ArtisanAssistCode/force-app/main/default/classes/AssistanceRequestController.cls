@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance Assistance Request controller
+ * Artisan Assist Assistance Request controller
  * 
  * Controller class for the aura components
  * 

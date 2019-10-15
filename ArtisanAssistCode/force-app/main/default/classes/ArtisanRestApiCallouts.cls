@@ -1,5 +1,5 @@
 /**
- * Artisan Assistance class to handle all callouts to the Artisan Production Org
+ * Artisan Assist class to handle all callouts to the Artisan Production Org
  *
  * @author Richard Clarke
  * @date 15/07/2019

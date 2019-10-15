@@ -1,12 +1,12 @@
 /**
- * Artisan Assistance - Assistance Request Schedulable Class to look for active requests on a schedule and and trigger a poll for all which are active
+ * Artisan Assist - Assistance Request Schedulable Class to look for active requests on a schedule and and trigger a poll for all which are active
  * 
  * @author Richard Clarke
  * @date 29/07/2019
  */
 public class AssistanceRequestSchedulableBatch implements Database.Batchable<sObject>, Schedulable {
 
-    public static String ArtisanAssistancePollingJobName = 'Artisan Assistance Update Polling' + (Test.isRunningTest() ? ' TEST' : '');
+    public static String ArtisanAssistancePollingJobName = 'Artisan Assist Update Polling' + (Test.isRunningTest() ? ' TEST' : '');
     
     public Database.QueryLocator start(Database.BatchableContext BC) {
         return Database.getQueryLocator('SELECT Id, Artisan_Case_SystemModstamp__c FROM Assistance_Request__c WHERE IsActive__c = true');

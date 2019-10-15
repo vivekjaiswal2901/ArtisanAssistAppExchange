@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesforce_Product__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Which Salesforce Product is primarily involved with this change?</inlineHelpText>
+    <label>Salesforce Product</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Analytics Cloud (Einstein Analytics)</fullName>
+                <default>false</default>
+                <label>Analytics Cloud (Einstein Analytics)</label>
+            </value>
+            <value>
+                <fullName>Analytics Cloud (Tableau)</fullName>
+                <default>false</default>
+                <label>Analytics Cloud (Tableau)</label>
+            </value>
+            <value>
+                <fullName>App Cloud (Heroku)</fullName>
+                <default>false</default>
+                <label>App Cloud (Heroku)</label>
+            </value>
+            <value>
+                <fullName>App Cloud (Salesforce Platform)</fullName>
+                <default>false</default>
+                <label>App Cloud (Salesforce Platform)</label>
+            </value>
+            <value>
+                <fullName>AppExchange Application(s)</fullName>
+                <default>false</default>
+                <label>AppExchange Application(s)</label>
+            </value>
+            <value>
+                <fullName>Commerce Cloud (CloudCraze)</fullName>
+                <default>false</default>
+                <label>Commerce Cloud (CloudCraze)</label>
+            </value>
+            <value>
+                <fullName>Commerce Cloud (DemandWare)</fullName>
+                <default>false</default>
+                <label>Commerce Cloud (DemandWare)</label>
+            </value>
+            <value>
+                <fullName>Community Cloud</fullName>
+                <default>false</default>
+                <label>Community Cloud</label>
+            </value>
+            <value>
+                <fullName>CPQ (Steelbrick)</fullName>
+                <default>false</default>
+                <label>CPQ (Steelbrick)</label>
+            </value>
+            <value>
+                <fullName>Integration Cloud (Mule)</fullName>
+                <default>false</default>
+                <label>Integration Cloud (Mule)</label>
+            </value>
+            <value>
+                <fullName>Marketing Cloud (ExactTarget)</fullName>
+                <default>false</default>
+                <label>Marketing Cloud (ExactTarget)</label>
+            </value>
+            <value>
+                <fullName>Marketing Cloud (Pardot)</fullName>
+                <default>false</default>
+                <label>Marketing Cloud (Pardot)</label>
+            </value>
+            <value>
+                <fullName>Sales Cloud</fullName>
+                <default>true</default>
+                <label>Sales Cloud</label>
+            </value>
+            <value>
+                <fullName>Service Cloud</fullName>
+                <default>false</default>
+                <label>Service Cloud</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

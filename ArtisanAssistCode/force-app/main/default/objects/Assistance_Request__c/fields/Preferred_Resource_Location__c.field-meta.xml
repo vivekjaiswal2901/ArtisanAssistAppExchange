@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Preferred_Resource_Location__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>In which location would you prefer the resources allocated to this request for assistance to be based</inlineHelpText>
+    <label>Preferred Resource Location</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>No preference</fullName>
+                <default>true</default>
+                <label>No preference</label>
+            </value>
+            <value>
+                <fullName>In my office</fullName>
+                <default>false</default>
+                <label>In my office</label>
+            </value>
+            <value>
+                <fullName>In my city</fullName>
+                <default>false</default>
+                <label>In my city</label>
+            </value>
+            <value>
+                <fullName>In my state</fullName>
+                <default>false</default>
+                <label>In my state</label>
+            </value>
+            <value>
+                <fullName>In my country</fullName>
+                <default>false</default>
+                <label>In my country</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
