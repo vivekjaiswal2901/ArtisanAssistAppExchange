@@ -1,0 +1,58 @@
+<aura:component controller="AssistanceRequestController" 
+                implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId"
+                 access="global">
+
+	<aura:attribute name="fullRequestRecord" type="Object" />
+    <aura:attribute name="simpleRequestRecord" type="Object" />
+    <aura:attribute name="recordLoadError" type="String" />
+    <aura:attribute name="requestFieldList" type="String" />
+    <aura:attribute name="nameSpace" type="String" />
+
+    <aura:attribute name="showRefreshNow" type="Boolean" />
+    <aura:attribute name="showRequestEstimate" type="Boolean" />
+    <aura:attribute name="showApproveEstimate" type="Boolean" />
+    <aura:attribute name="showApproveDeployment" type="Boolean" />
+    <aura:attribute name="showAcceptAsComplete" type="Boolean" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
+
+    <force:recordData aura:id="requestRecord"
+        recordId="{!v.recordId}"
+        targetRecord="{!v.fullRequestRecord}"
+        targetFields="{!v.simpleRequestRecord}"
+        targetError="{!v.recordLoadError}"
+		layoutType="FULL"
+		mode="VIEW"
+        fields="{!v.requestFieldList}"
+		recordUpdated="{!c.recordUpdated}"
+    />
+
+    <div align="right">
+        <aura:if isTrue="{!v.showRefreshNow}">
+            <lightning:button variant="Neutral" label="Refresh Now" title="Refresh Now" onclick="{!c.pollArtisanNowJS}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showRequestEstimate}">
+            <lightning:button variant="brand" label="Request Estimate" title="Request Estimate" onclick="{!c.setStageNameWaitingForEstimationJS}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showApproveEstimate}">
+            <lightning:button variant="brand" label="Approve Estimate" title="Approve Estimate" onclick="{!c.setStageNameWaitingForDevelopmentJS}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showApproveEstimate}">
+            <lightning:button variant="destructive" label="Reject Estimate" title="Reject Estimate" onclick="{!c.setStageNameRejectedJS}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showApproveDeployment}">
+            <lightning:button variant="brand" label="Approve Deployment" title="Approve Deployment" onclick="{!c.setStageNameWaitingForDeploymentJS}" />
+        </aura:if>
+        <aura:if isTrue="{!v.showAcceptAsComplete}">
+            <lightning:button variant="success" label="Accept as Complete" title="Accept as Complete" onclick="{!c.setStageNameAcceptedAsCompleteJS}" />
+        </aura:if>
+    </div>    
+
+    <!-- Display Lightning Data Service errors, if any -->
+    <aura:if isTrue="{!not(empty(v.recordLoadError))}">
+        <div class="recordLoadError">
+            {!v.recordError}</div>
+    </aura:if>
+
+</aura:component>
