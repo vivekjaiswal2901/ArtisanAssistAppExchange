@@ -16,6 +16,7 @@ public class Utils {
     // Record type API names
 	public static String customerQuestionAnswerRecordTypeAPIName = 'Customer_Question';
 	public static String artisanQuestionAnswerRecordTypeAPIName = 'Artisan_Question';
+	public static String ARTISANASSISTEMAIL = System.Label.Artisan_Assist_Email_Address;
     
 	// Get Question and Answer record type for Customer created questions
     public static Id GetCustomerQuestionAnswerRecordTypeId(){
@@ -142,11 +143,11 @@ public class Utils {
     }
     
     public static Messaging.SendEmailResult sendArtisanAssistanceTextEmail( String subject, String emailBody ){
-        return sendTextEmail('artisan.assist@pscgroup.com.au', // to address
-                            'artisan.assist@pscgroup.com.au', // reply to
-                            'Artisan Assist App', 
-                            subject, 
-                            emailBody);
+        return sendTextEmail(ARTISANASSISTEMAIL, // to address
+                             ARTISANASSISTEMAIL, // reply to
+                             'Artisan Assist App', 
+                             subject, 
+                             emailBody);
     }
     
     public static Messaging.SendEmailResult sendTextEmail(String toAddress, String replyTo, String senderName, String subject, String body) {

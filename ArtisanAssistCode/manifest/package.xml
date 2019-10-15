@@ -45,6 +45,7 @@
         <name>Dashboard</name>
     </types>
     <types>
+        <members>Artisan_Assistance_UtilityBar</members>
         <members>Assistance_Request_Record_Page</members>
         <members>Question_Answer_Record_Page</members>
         <name>FlexiPage</name>
