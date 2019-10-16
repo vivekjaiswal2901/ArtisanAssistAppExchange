@@ -29,6 +29,16 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>security_error_field_not_insertable</members>
+        <members>security_error_field_not_readable</members>
+        <members>security_error_field_not_updateable</members>
+        <members>security_error_object_not_deletable</members>
+        <members>security_error_object_not_insertable</members>
+        <members>security_error_object_not_readable</members>
+        <members>Artisan_Assist_Email_Address</members>
+        <name>CustomLabel</name>
+    </types>
+    <types>
         <members>Apex_Log__c</members>
         <members>Assistance_Request__c</members>
         <members>Question_Answer__c</members>
