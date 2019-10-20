@@ -5,7 +5,7 @@
  * @date 10/07/2017 
  */
  
-public class Utils {
+public without sharing class Utils {
 
 	// Define custom exceptions
 	public class ParametersException extends Exception {}

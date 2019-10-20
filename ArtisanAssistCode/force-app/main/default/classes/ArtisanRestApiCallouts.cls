@@ -4,7 +4,7 @@
  * @author Richard Clarke
  * @date 15/07/2019
  */
-public class ArtisanRestApiCallouts {
+public without sharing class ArtisanRestApiCallouts {
 
     // Define the header to be carried in the HTTP method calls under TLS to avoid anyone seeing it
 	static private String artisanAssistanceAppKey = '19b7543ca346038fcd9dc29a4e85a91e'; // MD5 hash of ArtisanAssistanceAppV1AppKey from https://www.md5hashgenerator.com/

@@ -79,12 +79,17 @@
             if (state === "SUCCESS") {
                 // Pulled the request data directly from the server to avoid caching issues
                 var retVal = response.getReturnValue();
-				component.set("v.simpleRequestRecord", retVal);
+                component.set("v.simpleRequestRecord", retVal);
+                console.log('simpleRequestRecord: '+JSON.stringify(retVal));
                 
-                var nameSpace = component.get("v.nameSpace");
-                var stageName = component.get("v.simpleRequestRecord." + nameSpace + "Stage_Name__c");
-                var isActive = component.get("v.simpleRequestRecord." + nameSpace + "IsActive__c");
-                var prodDeploy = component.get("v.simpleRequestRecord." + nameSpace + "Production_Deployment__c");
+                // M.Witchalls 14 Oct 2019
+                //var nameSpace = component.get("v.nameSpace");
+                //var stageName = component.get("v.simpleRequestRecord." + nameSpace + "Stage_Name__c");
+                //var isActive = component.get("v.simpleRequestRecord." + nameSpace + "IsActive__c");
+                //var prodDeploy = component.get("v.simpleRequestRecord." + nameSpace + "Production_Deployment__c");
+                var stageName = component.get("v.simpleRequestRecord.Stage_Name__c");
+                var isActive = component.get("v.simpleRequestRecord.IsActive__c");
+                var prodDeploy = component.get("v.simpleRequestRecord.Production_Deployment__c");
 
                 // When record is loaded set attributes controlling which buttons to display
                 component.set("v.showRefreshNow",( isActive ));
@@ -111,6 +116,7 @@
         $A.enqueueAction(action);
 	},
 
+    /* Not needed M.Witchalls 14 Oct 2019
     // Set the nameSpacePrefix attribute to an empty string or something like assist__
     getNameSpacePrefix : function(component, event, helper) {
         var action = component.get("c.getNameSpace");
@@ -126,7 +132,7 @@
                 component.set('v.nameSpace', nmSpacePrefix);
 
                 // Set initial button visibility after component init from the loaded recordData
-				helper.updateButtonVisibilityLocal(component, event, helper);
+				this.updateButtonVisibilityLocal(component, event, helper);
             }
             else if (state === "ERROR") {
                 var errors = response.getError();
@@ -141,5 +147,5 @@
             }
         });
         $A.enqueueAction(action);
-    }    
+    }*/    
 })
