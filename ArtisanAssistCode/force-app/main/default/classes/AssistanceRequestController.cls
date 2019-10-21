@@ -54,7 +54,7 @@ public with sharing class AssistanceRequestController {
         }                
     }
     
-    // Return the current namespace
+    // Return the current nameSpace
     @AuraEnabled
     public static String getNameSpace(){
         return Utils.GetNamespacePrefix();
@@ -64,9 +64,12 @@ public with sharing class AssistanceRequestController {
     // This was implemented because the use of recordData would not reload when the record was changed either by
     // a user's edit action or by a serverside refresh from the polling API
     @AuraEnabled
-    public static Assistance_Request__c getAssistanceRequest( String arId ){
+    public static AssistanceRequestWrapper getAssistanceRequest( String arId ){
         
-        // M.Witchalls 18 Oct 2019 Check to make sure all fields are accessible to this user
+        // M.Witchalls Oct 2019 Check to make sure all fields are accessible to this user
+        // + return instance of wrapper class so as to include nameSpace
+
+        AssistanceRequestWrapper request = new AssistanceRequestWrapper();
         List<Assistance_Request__c> reqs = new List<Assistance_Request__c>();     
 
         try {
@@ -85,6 +88,8 @@ public with sharing class AssistanceRequestController {
             Logutils.log(e, 'Failed to read Assistance Request Id [' + arId + ']');
         } 
 
-        return reqs[0];
+        request.nameSpace = Utils.GetNamespacePrefix();
+        request.request = reqs[0];
+        return request;
     }
 }
