@@ -4,7 +4,7 @@
  * @author Richard Clarke (based on prior work by Mohamed Atheek)
  * @date 15/07/2017 
  */
-public class LogUtils {
+public without sharing class LogUtils {
 	
 	private static List<Apex_Log__c > logs = new List<Apex_Log__c >();
 	

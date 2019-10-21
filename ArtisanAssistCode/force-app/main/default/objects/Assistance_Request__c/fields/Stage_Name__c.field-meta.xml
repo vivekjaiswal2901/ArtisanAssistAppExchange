@@ -55,6 +55,11 @@
                 <label>Being Developed</label>
             </value>
             <value>
+                <fullName>Waiting for Testing</fullName>
+                <default>false</default>
+                <label>Waiting for Testing</label>
+            </value>
+            <value>
                 <fullName>Being Tested</fullName>
                 <default>false</default>
                 <label>Being Tested</label>
