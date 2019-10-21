@@ -79,18 +79,29 @@
             if (state === "SUCCESS") {
                 // Pulled the request data directly from the server to avoid caching issues
                 var retVal = response.getReturnValue();
-                component.set("v.simpleRequestRecord", retVal);
-                console.log('simpleRequestRecord: '+JSON.stringify(retVal));
+                //component.set("v.simpleRequestRecord", retVal);
                 
-                // M.Witchalls 14 Oct 2019
                 //var nameSpace = component.get("v.nameSpace");
                 //var stageName = component.get("v.simpleRequestRecord." + nameSpace + "Stage_Name__c");
                 //var isActive = component.get("v.simpleRequestRecord." + nameSpace + "IsActive__c");
                 //var prodDeploy = component.get("v.simpleRequestRecord." + nameSpace + "Production_Deployment__c");
-                var stageName = component.get("v.simpleRequestRecord.Stage_Name__c");
-                var isActive = component.get("v.simpleRequestRecord.IsActive__c");
-                var prodDeploy = component.get("v.simpleRequestRecord.Production_Deployment__c");
 
+                // M.Witchalls Oct 2019 - getAssistanceRequest returns a wrapper object which includes the namespace
+                var nmSpacePrefix = retVal.nameSpace;
+                if ( nmSpacePrefix != "" ){
+                    nmSpacePrefix = nmSpacePrefix + "__";
+                }
+                console.log('nmSpacePrefix: '+nmSpacePrefix);
+                component.set('v.nameSpace', nmSpacePrefix);
+                component.set("v.simpleRequestRecord", retVal.request);
+                console.log('simpleRequestRecord: '+JSON.stringify(retVal.request));
+                var stageName = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Stage_Name__c");
+                var isActive = component.get("v.simpleRequestRecord." + nmSpacePrefix + "IsActive__c");
+                var prodDeploy = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Production_Deployment__c");
+
+
+                console.log('isActive: '+isActive);
+                console.log('stageName: '+stageName);
                 // When record is loaded set attributes controlling which buttons to display
                 component.set("v.showRefreshNow",( isActive ));
                 component.set("v.showRequestEstimate",( stageName == "Drafting" ));
