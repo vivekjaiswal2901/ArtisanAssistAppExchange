@@ -1209,20 +1209,38 @@ public without sharing class ArtisanRestApiCallouts {
 
         // Only clone the estimate data only if the stage is Waiting for Approval or Waiting for Acceptance
         if (( reqForUpdate[0].Stage_Name__c == 'Waiting for Approval' ) ||  ( reqForUpdate[0].Stage_Name__c == 'Waiting for Acceptance' )) {
-            reqForUpdate[0].Estimated_Cost__c = Decimal.valueOf(mapReqData.get('Estimated_Cost__c'));
-            reqForUpdate[0].Estimated_End_Date__c = Date.valueOf(mapReqData.get('Estimated_End_Date__c'));
-            reqForUpdate[0].Estimated_Person_Days__c = Decimal.valueOf(mapReqData.get('Estimated_Person_Days__c'));
-            reqForUpdate[0].Estimated_Start_Date__c = Date.valueOf(mapReqData.get('Estimated_Start_Date__c'));
+            // M.Witchalls 18 Oct 2019 - avoid 'Argument cannot be null' errors
+            String estCost = mapReqData.get('Estimated_Cost__c');
+            String estEndDate = mapReqData.get('Estimated_End_Date__c');
+            String estPersonDays = mapReqData.get('Estimated_Person_Days__c');
+            String estStartDate = mapReqData.get('Estimated_Start_Date__c');
+            if (estCost != null) reqForUpdate[0].Estimated_Cost__c = Decimal.valueOf(estCost);
+            if (estEndDate != null) reqForUpdate[0].Estimated_End_Date__c = Date.valueOf(estEndDate);
+            if (estPersonDays != null) reqForUpdate[0].Estimated_Person_Days__c = Decimal.valueOf(estPersonDays);
+            if (estStartDate != null) reqForUpdate[0].Estimated_Start_Date__c = Date.valueOf(estStartDate);
+            //reqForUpdate[0].Estimated_Cost__c = Decimal.valueOf(mapReqData.get('Estimated_Cost__c'));
+            //reqForUpdate[0].Estimated_End_Date__c = Date.valueOf(mapReqData.get('Estimated_End_Date__c'));
+            //reqForUpdate[0].Estimated_Person_Days__c = Decimal.valueOf(mapReqData.get('Estimated_Person_Days__c'));
+            //reqForUpdate[0].Estimated_Start_Date__c = Date.valueOf(mapReqData.get('Estimated_Start_Date__c'));
             reqForUpdate[0].Estimated_Cost_Commentary__c = mapReqData.get('Estimated_Cost_Commentary__c');
         }
         
         // Only clone the actual data only if the stage is Waiting for Acceptance
         if ( reqForUpdate[0].Stage_Name__c == 'Waiting for Acceptance' ) {
             // Replicate any actual data 
-            reqForUpdate[0].Actual_Cost__c = Decimal.valueOf(mapReqData.get('Actual_Cost__c'));
-            reqForUpdate[0].Actual_End_Date__c = Date.valueOf(mapReqData.get('Actual_End_Date__c'));
-            reqForUpdate[0].Actual_Person_Days__c = Decimal.valueOf(mapReqData.get('Actual_Person_Days__c'));
-            reqForUpdate[0].Actual_Start_Date__c = Date.valueOf(mapReqData.get('Actual_Start_Date__c'));
+            // M.Witchalls 18 Oct 2019 - avoid 'Argument cannot be null' errors
+            String actCost = mapReqData.get('Actual_Cost__c');
+            String actEndDate = mapReqData.get('Actual_End_Date__c');
+            String actPersonDays = mapReqData.get('Actual_Person_Days__c');
+            String actStartDate = mapReqData.get('Actual_Start_Date__c');
+            if (actCost != null) reqForUpdate[0].Actual_Cost__c = Decimal.valueOf(actCost);
+            if (actEndDate != null) reqForUpdate[0].Actual_End_Date__c = Date.valueOf(actEndDate);
+            if (actPersonDays != null) reqForUpdate[0].Actual_Person_Days__c = Decimal.valueOf(actPersonDays);
+            if (actStartDate != null) reqForUpdate[0].Actual_Start_Date__c = Date.valueOf(actStartDate);
+            //reqForUpdate[0].Actual_Cost__c = Decimal.valueOf(mapReqData.get('Actual_Cost__c'));
+            //reqForUpdate[0].Actual_End_Date__c = Date.valueOf(mapReqData.get('Actual_End_Date__c'));
+            //reqForUpdate[0].Actual_Person_Days__c = Decimal.valueOf(mapReqData.get('Actual_Person_Days__c'));
+            //reqForUpdate[0].Actual_Start_Date__c = Date.valueOf(mapReqData.get('Actual_Start_Date__c'));
             reqForUpdate[0].Actual_Cost_Commentary__c = mapReqData.get('Actual_Cost_Commentary__c');
         }
         
