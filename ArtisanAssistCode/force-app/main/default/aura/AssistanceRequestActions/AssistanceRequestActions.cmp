@@ -17,6 +17,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
 	<aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
 
+    <!-- Not needed M.Witchalls 14 Oct 2019
     <force:recordData aura:id="requestRecord"
         recordId="{!v.recordId}"
         targetRecord="{!v.fullRequestRecord}"
@@ -26,7 +27,7 @@
 		mode="VIEW"
         fields="{!v.requestFieldList}"
 		recordUpdated="{!c.recordUpdated}"
-    />
+    />-->
 
     <div align="right">
         <aura:if isTrue="{!v.showRefreshNow}">
