@@ -8,7 +8,7 @@
  * @author Richard Clarke
  * @date 08/08/2019
  */
-public class AssistanceRequestReplication implements Queueable, Database.AllowsCallouts {
+public without sharing class AssistanceRequestReplication implements Queueable, Database.AllowsCallouts {
     
     // Hold the Id of the Assistance Request which should be replicated
     Set<Id> insertedIds;

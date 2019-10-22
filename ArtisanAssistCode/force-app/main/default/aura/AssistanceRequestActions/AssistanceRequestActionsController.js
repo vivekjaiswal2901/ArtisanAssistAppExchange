@@ -40,6 +40,8 @@
     
     // Function called on component initialisation
 	doInit : function(component, event, helper) {
-        helper.getNameSpacePrefix(component, event, helper);
-      },    
+        //helper.getNameSpacePrefix(component, event, helper);
+        // M.Witchalls 18 Oct 2019
+        helper.updateButtonVisibilityServer(component, event, helper);
+    },    
 })

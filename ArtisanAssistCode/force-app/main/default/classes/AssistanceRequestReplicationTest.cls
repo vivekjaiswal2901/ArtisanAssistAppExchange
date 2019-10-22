@@ -67,7 +67,8 @@ public class AssistanceRequestReplicationTest {
         
         // Quickly test the Apex controller for the lightning component
         system.assertEquals(Utils.GetNamespacePrefix(), AssistanceRequestController.getNameSpace(), 'Apex controller for component should return the namespace');
-        Assistance_Request__c controllerReq = AssistanceRequestController.getAssistanceRequest(req.Id);
+        AssistanceRequestWrapper wrap = AssistanceRequestController.getAssistanceRequest(req.Id);
+        Assistance_Request__c controllerReq = wrap.request;
         system.assertEquals(req.Id,controllerReq.Id,'Apex controller for component should be able to retrieve the request record');
     }
     

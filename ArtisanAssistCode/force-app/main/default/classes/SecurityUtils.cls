@@ -28,7 +28,7 @@
  * Utility class for checking FLS/CRUD. NOTE: all "check" methods will throw a SecurityException (or subclass) if the
  * user does not have the proper security granted.
  **/
-public class SecurityUtils  
+public without sharing class SecurityUtils  
 {
     @testVisible 
     private Enum OperationType { CREATE, READ, MODIFY, DEL } //UPDATE and DELETE are reserved words

@@ -79,13 +79,29 @@
             if (state === "SUCCESS") {
                 // Pulled the request data directly from the server to avoid caching issues
                 var retVal = response.getReturnValue();
-				component.set("v.simpleRequestRecord", retVal);
+                //component.set("v.simpleRequestRecord", retVal);
                 
-                var nameSpace = component.get("v.nameSpace");
-                var stageName = component.get("v.simpleRequestRecord." + nameSpace + "Stage_Name__c");
-                var isActive = component.get("v.simpleRequestRecord." + nameSpace + "IsActive__c");
-                var prodDeploy = component.get("v.simpleRequestRecord." + nameSpace + "Production_Deployment__c");
+                //var nameSpace = component.get("v.nameSpace");
+                //var stageName = component.get("v.simpleRequestRecord." + nameSpace + "Stage_Name__c");
+                //var isActive = component.get("v.simpleRequestRecord." + nameSpace + "IsActive__c");
+                //var prodDeploy = component.get("v.simpleRequestRecord." + nameSpace + "Production_Deployment__c");
 
+                // M.Witchalls Oct 2019 - getAssistanceRequest returns a wrapper object which includes the namespace
+                var nmSpacePrefix = retVal.nameSpace;
+                if ( nmSpacePrefix != "" ){
+                    nmSpacePrefix = nmSpacePrefix + "__";
+                }
+                console.log('nmSpacePrefix: '+nmSpacePrefix);
+                component.set('v.nameSpace', nmSpacePrefix);
+                component.set("v.simpleRequestRecord", retVal.request);
+                console.log('simpleRequestRecord: '+JSON.stringify(retVal.request));
+                var stageName = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Stage_Name__c");
+                var isActive = component.get("v.simpleRequestRecord." + nmSpacePrefix + "IsActive__c");
+                var prodDeploy = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Production_Deployment__c");
+
+
+                console.log('isActive: '+isActive);
+                console.log('stageName: '+stageName);
                 // When record is loaded set attributes controlling which buttons to display
                 component.set("v.showRefreshNow",( isActive ));
                 component.set("v.showRequestEstimate",( stageName == "Drafting" ));
@@ -111,6 +127,7 @@
         $A.enqueueAction(action);
 	},
 
+    /* Not needed M.Witchalls 14 Oct 2019
     // Set the nameSpacePrefix attribute to an empty string or something like assist__
     getNameSpacePrefix : function(component, event, helper) {
         var action = component.get("c.getNameSpace");
@@ -126,7 +143,7 @@
                 component.set('v.nameSpace', nmSpacePrefix);
 
                 // Set initial button visibility after component init from the loaded recordData
-				helper.updateButtonVisibilityLocal(component, event, helper);
+				this.updateButtonVisibilityLocal(component, event, helper);
             }
             else if (state === "ERROR") {
                 var errors = response.getError();
@@ -141,5 +158,5 @@
             }
         });
         $A.enqueueAction(action);
-    }    
+    }*/    
 })

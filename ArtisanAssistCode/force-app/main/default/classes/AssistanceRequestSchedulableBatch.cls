@@ -4,7 +4,7 @@
  * @author Richard Clarke
  * @date 29/07/2019
  */
-public class AssistanceRequestSchedulableBatch implements Database.Batchable<sObject>, Schedulable {
+public without sharing class AssistanceRequestSchedulableBatch implements Database.Batchable<sObject>, Schedulable {
 
     public static String ArtisanAssistancePollingJobName = 'Artisan Assist Update Polling' + (Test.isRunningTest() ? ' TEST' : '');
     

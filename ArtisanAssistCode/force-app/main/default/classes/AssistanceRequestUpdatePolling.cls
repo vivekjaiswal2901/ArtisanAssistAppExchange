@@ -4,7 +4,7 @@
  * @author Richard Clarke
  * @date 06/08/2019
  */
-public class AssistanceRequestUpdatePolling implements Queueable, Database.AllowsCallouts {
+public without sharing class AssistanceRequestUpdatePolling implements Queueable, Database.AllowsCallouts {
     
     // Hold the Id of the Assistance Request for which a polling check should be done - implemented in queuable rather than future so can be called from batch
     Set<Id> requestIds;
