@@ -283,22 +283,22 @@
             <sortOrder>1</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Assistance_Request__c.Ask_Question</actionName>
+            <actionName>Assistance_Request__c.assist__Ask_Question</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Assistance_Request__c.New_Artisan_Assistance_Task</actionName>
+            <actionName>Assistance_Request__c.assist__New_Artisan_Assistance_Task</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>3</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>Assistance_Request__c.Ask_Question</quickActionName>
+            <quickActionName>assist__Assistance_Request__c.Ask_Question</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
-            <quickActionName>Assistance_Request__c.New_Artisan_Assistance_Task</quickActionName>
+            <quickActionName>assist__Assistance_Request__c.New_Artisan_Assistance_Task</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedLists>

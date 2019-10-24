@@ -25,6 +25,10 @@
         <name>AuraDefinitionBundle</name>
     </types>
     <types>
+        <members>AppLogo_MW</members>
+        <name>ContentAsset</name>
+    </types>
+     <types>
         <members>Artisan_Assist</members>
         <name>CustomApplication</name>
     </types>

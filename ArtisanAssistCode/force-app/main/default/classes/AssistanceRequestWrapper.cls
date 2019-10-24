@@ -10,4 +10,3 @@
     @AuraEnabled public String nameSpace {get; set;}    
     @AuraEnabled public Assistance_Request__c request {get; set;}
 }
-

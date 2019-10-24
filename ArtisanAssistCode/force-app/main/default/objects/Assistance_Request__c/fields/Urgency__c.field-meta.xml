@@ -6,7 +6,6 @@
     <inlineHelpText>How urgent is this request?</inlineHelpText>
     <label>Urgency</label>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
