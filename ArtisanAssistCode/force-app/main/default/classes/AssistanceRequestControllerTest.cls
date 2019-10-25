@@ -41,7 +41,8 @@ private class AssistanceRequestControllerTest {
 
         Test.startTest();
 
-        Assistance_Request__c req = AssistanceRequestController.getAssistanceRequest(arId);
+        AssistanceRequestWrapper wrap = AssistanceRequestController.getAssistanceRequest(arId);
+        Assistance_Request__c req = wrap.request;
 
         AssistanceRequestController.setNewStageNameApex(arId, ESTIMATION);
 

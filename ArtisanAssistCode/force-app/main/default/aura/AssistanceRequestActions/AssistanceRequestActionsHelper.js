@@ -94,14 +94,12 @@
                 console.log('nmSpacePrefix: '+nmSpacePrefix);
                 component.set('v.nameSpace', nmSpacePrefix);
                 component.set("v.simpleRequestRecord", retVal.request);
-                console.log('simpleRequestRecord: '+JSON.stringify(retVal.request));
+                //console.log('simpleRequestRecord: '+JSON.stringify(retVal.request));
                 var stageName = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Stage_Name__c");
                 var isActive = component.get("v.simpleRequestRecord." + nmSpacePrefix + "IsActive__c");
                 var prodDeploy = component.get("v.simpleRequestRecord." + nmSpacePrefix + "Production_Deployment__c");
-
-
-                console.log('isActive: '+isActive);
                 console.log('stageName: '+stageName);
+
                 // When record is loaded set attributes controlling which buttons to display
                 component.set("v.showRefreshNow",( isActive ));
                 component.set("v.showRequestEstimate",( stageName == "Drafting" ));
