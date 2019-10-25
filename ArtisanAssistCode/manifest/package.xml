@@ -28,7 +28,7 @@
         <members>AppLogo_MW</members>
         <name>ContentAsset</name>
     </types>
-     <types>
+    <types>
         <members>Artisan_Assist</members>
         <name>CustomApplication</name>
     </types>

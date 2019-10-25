@@ -28,6 +28,13 @@
     // Function called when the record view is refreshed
     isRefreshed: function(component, event, helper) {
     	helper.updateButtonVisibilityServer(component, event, helper);
+
+        // M.Witchalls Oct 2019 
+        // force:refreshView currently does not work in the Edge browser - 
+        // the workaround is a complete page refresh
+        if (/edge/.test(navigator.userAgent.toLowerCase())) {
+            location.reload();
+        }      
     },
     
     // Function called when the recordData is updated NOTE does not get called as it should on edit
