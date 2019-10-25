@@ -146,7 +146,7 @@
     <dashboardType>LoggedInUser</dashboardType>
     <description>Artisan Assistance Requests</description>
     <isGridLayout>true</isGridLayout>
-    <runningUser>michael.witchalls@pscgroup.com.au.artisan.assistance.development</runningUser>
+    <runningUser>michael.witchalls@pscgroup.com.au.artisan.assistance.golden</runningUser>
     <textColor>#000000</textColor>
     <title>Artisan Assist Requests</title>
     <titleColor>#000000</titleColor>

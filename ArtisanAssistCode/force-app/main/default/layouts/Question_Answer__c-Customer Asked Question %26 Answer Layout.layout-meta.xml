@@ -132,24 +132,24 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Edit</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>1</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Question_Answer__c.New_Artisan_Assistance_Task</actionName>
+            <actionName>Question_Answer__c.assist__New_Artisan_Assistance_Task</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>2</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Edit</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>0</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
-            <quickActionName>Question_Answer__c.New_Artisan_Assistance_Task</quickActionName>
+            <quickActionName>assist__Question_Answer__c.New_Artisan_Assistance_Task</quickActionName>
         </quickActionListItems>
     </quickActionList>
     <relatedLists>

@@ -6,7 +6,6 @@
     <label>Sandbox Name</label>
     <length>128</length>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Text</type>

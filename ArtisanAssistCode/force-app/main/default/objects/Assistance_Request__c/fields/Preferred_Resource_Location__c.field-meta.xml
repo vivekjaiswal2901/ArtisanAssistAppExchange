@@ -5,7 +5,6 @@
     <inlineHelpText>In which location would you prefer the resources allocated to this request for assistance to be based</inlineHelpText>
     <label>Preferred Resource Location</label>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>

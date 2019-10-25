@@ -5,7 +5,6 @@
     <inlineHelpText>The answer to the question</inlineHelpText>
     <label>Answer</label>
     <length>10000</length>
-    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Html</type>

@@ -5,7 +5,6 @@
     <inlineHelpText>How will you determine if this request has been completed successfully</inlineHelpText>
     <label>Success Criteria</label>
     <length>10000</length>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Html</type>

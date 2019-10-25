@@ -149,19 +149,17 @@
     <description>The Assistance Request object stores your requests for assistance using the Artisan Assistance application.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>Private</externalSharingModel>
     <label>Assistance Request</label>
     <nameField>
         <displayFormat>REQ{00000000}</displayFormat>
         <label>Request Ref#</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -175,8 +173,8 @@
         <customTabListAdditionalFields>Environment__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Stage_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Phase__c</customTabListAdditionalFields>
-        <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>OpenListInQuip</excludedStandardButtons>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
         <lookupDialogsAdditionalFields>Title__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>OWNER.ALIAS</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
@@ -193,7 +191,7 @@
         <lookupPhoneDialogsAdditionalFields>Environment__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Stage_Name__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Phase__c</lookupPhoneDialogsAdditionalFields>
-        <massQuickActions>Ask_Question</massQuickActions>
+        <massQuickActions>assist__Ask_Question</massQuickActions>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Title__c</searchFilterFields>
         <searchFilterFields>OWNER.ALIAS</searchFilterFields>
