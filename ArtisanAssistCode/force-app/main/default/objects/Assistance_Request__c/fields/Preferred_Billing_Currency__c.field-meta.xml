@@ -5,7 +5,6 @@
     <inlineHelpText>In which currency would you prefer to be billed in once the work is complete?</inlineHelpText>
     <label>Preferred Billing Currency</label>
     <required>true</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>

@@ -5,7 +5,6 @@
     <inlineHelpText>When do you need this completed by (leave blank if not known)</inlineHelpText>
     <label>Required by Date</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>

@@ -5,7 +5,6 @@
     <externalId>false</externalId>
     <inlineHelpText>True if no answer has been provided</inlineHelpText>
     <label>Open</label>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>

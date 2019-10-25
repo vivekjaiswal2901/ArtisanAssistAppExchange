@@ -5,7 +5,6 @@
     <inlineHelpText>On what date did the work to complete this request actually start?</inlineHelpText>
     <label>Actual Start Date</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Date</type>

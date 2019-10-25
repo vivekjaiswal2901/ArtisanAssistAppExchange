@@ -5,7 +5,6 @@
     <inlineHelpText>The email address of the person who asked this question</inlineHelpText>
     <label>Asked by Email</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Email</type>

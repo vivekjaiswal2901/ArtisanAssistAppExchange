@@ -5,7 +5,6 @@
     <inlineHelpText>The phone number of the person who first answered this question</inlineHelpText>
     <label>Answered by Phone</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Phone</type>

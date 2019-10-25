@@ -5,7 +5,6 @@
     <inlineHelpText>Describe what business outcome you need to achieve together with any technical insights about how you want the work to be done</inlineHelpText>
     <label>Business Outcome Required</label>
     <length>32768</length>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Html</type>

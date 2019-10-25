@@ -6,7 +6,6 @@
     <inlineHelpText>The current stage in the delivery process for this Request for Assistance.</inlineHelpText>
     <label>Stage</label>
     <required>false</required>
-    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>

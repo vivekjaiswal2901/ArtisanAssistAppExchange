@@ -6,7 +6,6 @@
     <inlineHelpText>The phase of the Request for Assistance based on the current stage.</inlineHelpText>
     <label>Phase</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
@@ -57,11 +56,6 @@
             </value>
         </valueSetDefinition>
         <valueSettings>
-            <controllingFieldValue>Being Tested</controllingFieldValue>
-            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
-            <valueName>Test</valueName>
-        </valueSettings>
-        <valueSettings>
             <controllingFieldValue>Waiting for Deployment</controllingFieldValue>
             <controllingFieldValue>Being Deployed</controllingFieldValue>
             <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
@@ -78,18 +72,9 @@
             <valueName>Completed</valueName>
         </valueSettings>
         <valueSettings>
-            <controllingFieldValue>Declined</controllingFieldValue>
-            <controllingFieldValue>Rejected</controllingFieldValue>
-            <valueName>Cancelled</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Drafting</controllingFieldValue>
-            <valueName>Draft</valueName>
-        </valueSettings>
-        <valueSettings>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
             <controllingFieldValue>Waiting for Estimation</controllingFieldValue>
             <controllingFieldValue>Being Estimated</controllingFieldValue>
-            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
             <controllingFieldValue>Waiting for Approval</controllingFieldValue>
             <valueName>Estimation</valueName>
         </valueSettings>
@@ -98,6 +83,21 @@
             <controllingFieldValue>Waiting for Development</controllingFieldValue>
             <controllingFieldValue>Being Developed</controllingFieldValue>
             <valueName>Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Waiting for Clarification</controllingFieldValue>
+            <controllingFieldValue>Waiting for Testing</controllingFieldValue>
+            <controllingFieldValue>Being Tested</controllingFieldValue>
+            <valueName>Test</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Drafting</controllingFieldValue>
+            <valueName>Draft</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Declined</controllingFieldValue>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Cancelled</valueName>
         </valueSettings>
     </valueSet>
 </CustomField>
