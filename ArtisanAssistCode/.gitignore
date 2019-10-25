@@ -5,6 +5,9 @@
 # Salesforce cache
 .sfdx/
 
+# Remote Site Settings
+force-app/main/default/remoteSiteSettings/
+
 # Logs
 logs
 *.log
