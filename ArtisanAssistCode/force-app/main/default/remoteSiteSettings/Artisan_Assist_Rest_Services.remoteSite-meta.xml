@@ -3,5 +3,5 @@
     <description>The Url to the Artisan Assist REST APIs</description>
     <disableProtocolSecurity>false</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>https://api.artisans.com.au</url>
+    <url>https://assistdev-artisan-api.cs74.force.com</url>
 </RemoteSiteSetting>

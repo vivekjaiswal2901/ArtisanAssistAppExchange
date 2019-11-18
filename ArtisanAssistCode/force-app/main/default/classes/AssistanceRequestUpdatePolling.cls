@@ -25,6 +25,16 @@ public without sharing class AssistanceRequestUpdatePolling implements Queueable
         try {
 //system.debug('*** In AssistanceRequestUpdatePolling PollArtisanOrgForUpdate handling polling for Id [' + reqId + ']');
             // Retrieve the record to get the last recorded systemmodstamp
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Artisan_Case_SystemModstamp__c
+                }
+            );
+
             List<Assistance_Request__c> activeRequests = [
                 Select Id, Artisan_Case_SystemModstamp__c
                 from Assistance_Request__c READONLY 
@@ -47,6 +57,17 @@ public without sharing class AssistanceRequestUpdatePolling implements Queueable
 //system.debug('*** In AssistanceRequestUpdatePolling PollArtisanOrgForUpdate exception ' + e.getMessage());
             
             // Update the record to indicate the sync failed (only happens when the request exists but gets an exception back from the callout)
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Sync_Status__c,
+                    Assistance_Request__c.Sync_Details__c
+                }
+            );
+
             List<Assistance_Request__c> polledRequest = [
                 Select Id, Sync_Status__c, Sync_Details__c 
                 from Assistance_Request__c 
@@ -55,6 +76,16 @@ public without sharing class AssistanceRequestUpdatePolling implements Queueable
 // system.debug('*** In AssistanceRequestUpdatePolling PollArtisanOrgForUpdate on exception about to update sync status to failed');
                 polledRequest[0].Sync_Status__c = 'Sync failed';
                 polledRequest[0].Sync_Details__c = e.getMessage().left(255);
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkUpdate(
+                    Assistance_Request__c.sObjectType, 
+                    new List<SObjectField> {
+                        Assistance_Request__c.Sync_Status__c,
+                        Assistance_Request__c.Sync_Details__c
+                    }
+                );
+                
                 database.update(polledRequest[0], false);
 // system.debug('*** In AssistanceRequestUpdatePolling PollArtisanOrgForUpdate on exception after updating sync status to failed');
             }                    
