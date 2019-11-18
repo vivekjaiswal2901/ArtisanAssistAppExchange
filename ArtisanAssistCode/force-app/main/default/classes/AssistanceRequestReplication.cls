@@ -105,6 +105,41 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
     public static void ReplicateInsertedRecordToArtisanOrg( Id reqId ){
         try {
 //system.debug('*** In ReplicateInsertedRecordToArtisanOrg handling insert of Id [' + reqId + ']');
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Name,
+                    Assistance_Request__c.Stage_Name__c,
+                    Assistance_Request__c.Prior_Stage_Name__c, 
+                    Assistance_Request__c.Title__c, 
+                    Assistance_Request__c.Description__c, 
+                    Assistance_Request__c.Success_Criteria__c, 
+                    Assistance_Request__c.Phase__c, 
+                    Assistance_Request__c.Urgency__c, 
+                    Assistance_Request__c.Date_Required__c, 
+                    Assistance_Request__c.Environment__c, 
+                    Assistance_Request__c.Login_Access__c, 
+                    Assistance_Request__c.Production_Deployment__c, 
+                    Assistance_Request__c.Sandbox_Name__c, 
+                    Assistance_Request__c.Salesforce_Product__c,
+                    Assistance_Request__c.Preferred_Resource_Location__c, 
+                    Assistance_Request__c.Preferred_Billing_Currency__c, 
+                    Assistance_Request__c.Preferred_Timezone__c, 
+                    Assistance_Request__c.CreatedById
+                }
+            );
+            SecurityUtils.checkRead(
+                User.sObjectType, 
+                new List<SObjectField> {
+                    User.Id, User.Title, User.FirstName,
+        			User.LastName, User.Email, User.Phone, User.MobilePhone, User.Street, User.City, User.State, User.Postalcode,
+        			User.Country
+                }
+            );
+
             // Retrieve the inserted record
             List<Assistance_Request__c> insertedRequests = [
                 Select Id, Name, Stage_Name__c, Prior_Stage_Name__c, Title__c, Description__c, Success_Criteria__c, Phase__c, 
@@ -164,6 +199,17 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
                 } 
 
 //system.debug('*** In ReplicateInsertedRecordToArtisanOrg handling insert of Id [' + reqId + '] and caseId [' + caseId + ']');
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkRead(
+                    Assistance_Request__c.sObjectType, 
+                    new List<SObjectField> {
+                        Assistance_Request__c.Id,
+                        Assistance_Request__c.Sync_Status__c,
+                        Assistance_Request__c.Sync_Details__c
+                    }
+                );
+
                 insertedRequests = [
                     Select Id, Sync_Status__c, Sync_Details__c 
                     from Assistance_Request__c 
@@ -174,6 +220,16 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
                     // Update the record to indicate the sync succeeded
                     insertedRequests[0].Sync_Status__c = 'Sync successful';
                     insertedRequests[0].Sync_Details__c = 'Artisan Case Id=[' + caseId + ']';
+
+                    //M.Witchalls for Security Review 18 Nov 2019
+                    SecurityUtils.checkUpdate(
+                        Assistance_Request__c.sObjectType, 
+                        new List<SObjectField> {
+                            Assistance_Request__c.Sync_Status__c,
+                            Assistance_Request__c.Sync_Details__c
+                        }
+                    );
+
                     database.update(insertedRequests[0],false);
                 }
             }
@@ -182,6 +238,16 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
 // system.debug('*** In ReplicateInsertedRecordToArtisanOrg exception ' + e.getMessage());
             
             // Update the record to indicate the sync failed
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Sync_Status__c,
+                    Assistance_Request__c.Sync_Details__c
+                }
+            );
             List<Assistance_Request__c> insertedRequests = [
                 Select Id, Sync_Status__c, Sync_Details__c 
                 from Assistance_Request__c 
@@ -190,6 +256,16 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
 // system.debug('*** In ReplicateInsertedRecordToArtisanOrg on exception about to update sync status to failed');
                 insertedRequests[0].Sync_Status__c = 'Sync failed';
                 insertedRequests[0].Sync_Details__c = e.getMessage().left(255);
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkUpdate(
+                    Assistance_Request__c.sObjectType, 
+                    new List<SObjectField> {
+                        Assistance_Request__c.Sync_Status__c,
+                        Assistance_Request__c.Sync_Details__c
+                    }
+                );
+
                 database.update(insertedRequests[0], false);
 // system.debug('*** In ReplicateInsertedRecordToArtisanOrg on exception after updating sync status to failed');
             }                    
@@ -201,6 +277,32 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
         try {
 //system.debug('*** In AssistanceRequestHandler.ReplicateUpdatedRecordToArtisanOrg handling insert of Id [' + reqId + ']');
             // Retrieve the inserted record
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Name,
+                    Assistance_Request__c.Stage_Name__c,
+                    Assistance_Request__c.Prior_Stage_Name__c, 
+                    Assistance_Request__c.Title__c, 
+                    Assistance_Request__c.Description__c, 
+                    Assistance_Request__c.Success_Criteria__c, 
+                    Assistance_Request__c.Phase__c, 
+                    Assistance_Request__c.Urgency__c, 
+                    Assistance_Request__c.Date_Required__c, 
+                    Assistance_Request__c.Environment__c, 
+                    Assistance_Request__c.Login_Access__c, 
+                    Assistance_Request__c.Production_Deployment__c, 
+                    Assistance_Request__c.Sandbox_Name__c, 
+                    Assistance_Request__c.Salesforce_Product__c,
+                    Assistance_Request__c.Preferred_Resource_Location__c, 
+                    Assistance_Request__c.Preferred_Billing_Currency__c, 
+                    Assistance_Request__c.Preferred_Timezone__c
+                }
+            );
+
             List<Assistance_Request__c> updatedRequests = [
                 Select Id, Name, Stage_Name__c, Prior_Stage_Name__c, Title__c, Description__c, Success_Criteria__c, Phase__c, 
         			Urgency__c, Date_Required__c, Environment__c, Login_Access__c, Production_Deployment__c, Sandbox_Name__c, Salesforce_Product__c,
@@ -245,6 +347,17 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
                 } 
 
 //system.debug('*** In AssistanceRequestHandler.ReplicateUpdatedRecordToArtisanOrg handling update of Id [' + reqId + '] and caseId [' + caseId + ']');
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkRead(
+                    Assistance_Request__c.sObjectType, 
+                    new List<SObjectField> {
+                        Assistance_Request__c.Id,
+                        Assistance_Request__c.Sync_Status__c,
+                        Assistance_Request__c.Sync_Details__c
+                    }
+                );
+
                 updatedRequests = [
                     Select Id, Sync_Status__c, Sync_Details__c 
                     from Assistance_Request__c 
@@ -255,6 +368,16 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
                     // Update the record to indicate the sync succeeded
                     updatedRequests[0].Sync_Status__c = 'Sync successful';
                     updatedRequests[0].Sync_Details__c = 'Artisan Case Id=[' + caseId + ']';
+
+                    //M.Witchalls for Security Review 18 Nov 2019
+                    SecurityUtils.checkUpdate(
+                        Assistance_Request__c.sObjectType, 
+                        new List<SObjectField> {
+                            Assistance_Request__c.Sync_Status__c,
+                            Assistance_Request__c.Sync_Details__c
+                        }
+                    );
+
                     database.update(updatedRequests[0],false);
                 }
             }
@@ -263,6 +386,17 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
 // system.debug('*** In AssistanceRequestHandler.ReplicateUpdatedRecordToArtisanOrg exception ' + e.getMessage());
             
             // Update the record to indicate the sync failed
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Assistance_Request__c.sObjectType, 
+                new List<SObjectField> {
+                    Assistance_Request__c.Id,
+                    Assistance_Request__c.Sync_Status__c,
+                    Assistance_Request__c.Sync_Details__c
+                }
+            );
+
             List<Assistance_Request__c> updatedRequests = [
                 Select Id, Sync_Status__c, Sync_Details__c 
                 from Assistance_Request__c 
@@ -271,6 +405,16 @@ public without sharing class AssistanceRequestReplication implements Queueable, 
 // system.debug('*** In AssistanceRequestHandler.ReplicateUpdatedRecordToArtisanOrg on exception about to update sync status to failed');
                 updatedRequests[0].Sync_Status__c = 'Sync failed';
                 updatedRequests[0].Sync_Details__c = e.getMessage().left(255);
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkUpdate(
+                    Assistance_Request__c.sObjectType, 
+                    new List<SObjectField> {
+                        Assistance_Request__c.Sync_Status__c,
+                        Assistance_Request__c.Sync_Details__c
+                    }
+                );
+
                 database.update(updatedRequests[0], false);
 // system.debug('*** In AssistanceRequestHandler.ReplicateUpdatedRecordToArtisanOrg on exception after updating sync status to failed');
             }                    
