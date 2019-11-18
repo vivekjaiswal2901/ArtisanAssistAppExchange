@@ -63,6 +63,21 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
         try {
 // system.debug('*** In QuestionAnswerReplication.ReplicateInsertedRecordToArtisanOrg handling insert of Id [' + qaId + ']');
             // Retrieve the inserted record
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Question_Answer__c.sObjectType, 
+                new List<SObjectField> {
+                    Question_Answer__c.Id,
+                    Question_Answer__c.Assistance_Request_Id__c, 
+                    Question_Answer__c.Name, 
+                    Question_Answer__c.Question__c, 
+                    Question_Answer__c.Asked_by_Name__c, 
+                    Question_Answer__c.Asked_by_Email__c, 
+                    Question_Answer__c.Asked_by_Phone__c
+                }
+            );
+
             List<Question_Answer__c> insertedQuestions = [
                 Select Assistance_Request_Id__c, Id, Name, Question__c, Asked_by_Name__c, Asked_by_Email__c, Asked_by_Phone__c 
                 from Question_Answer__c READONLY 
@@ -87,6 +102,17 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
                 } 
 
 // system.debug('*** In QuestionAnswerReplication.ReplicateInsertedRecordToArtisanOrg handling insert of Id [' + qaId + '] and artisanQAId [' + artisanQAId + ']');
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkRead(
+                    Question_Answer__c.sObjectType, 
+                    new List<SObjectField> {
+                        Question_Answer__c.Id,
+                        Question_Answer__c.Sync_Status__c,
+                        Question_Answer__c.Sync_Details__c
+                    }
+                );
+
                 insertedQuestions = [
                     Select Id, Sync_Status__c, Sync_Details__c 
                     from Question_Answer__c 
@@ -95,8 +121,19 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
                     throw new Utils.IntegrationException('The sync success update in ArtisanRestApiCallouts.createQuestionAndAnswer failed for Id=[' + qaId + ']');
                 } else {
                     // Update the record to indicate the sync succeeded
+
                     insertedQuestions[0].Sync_Status__c = 'Sync successful';
                     insertedQuestions[0].Sync_Details__c = 'Artisan Q&A Id=[' + artisanQAId + ']';
+
+                    //M.Witchalls for Security Review 18 Nov 2019
+                    SecurityUtils.checkUpdate(
+                       Question_Answer__c.sObjectType, 
+                        new List<SObjectField> {
+                            Question_Answer__c.Sync_Status__c,
+                            Question_Answer__c.Sync_Details__c
+                        }
+                    );
+
                     database.update(insertedQuestions[0],false);
                 }
             }
@@ -105,6 +142,17 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
 // system.debug('*** In QuestionAnswerReplication.ReplicateInsertedRecordToArtisanOrg exception ' + e.getMessage());
             
             // Update the record to indicate the sync failed
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Question_Answer__c.sObjectType, 
+                new List<SObjectField> {
+                    Question_Answer__c.Id,
+                    Question_Answer__c.Sync_Status__c,
+                    Question_Answer__c.Sync_Details__c
+                }
+            );
+
             List<Question_Answer__c> insertedQuestions = [
                 Select Id, Sync_Status__c, Sync_Details__c 
                 from Question_Answer__c 
@@ -113,6 +161,16 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
 // system.debug('*** In QuestionAnswerReplication.ReplicateInsertedRecordToArtisanOrg on exception about to update sync status to failed');
                 insertedQuestions[0].Sync_Status__c = 'Sync failed';
                 insertedQuestions[0].Sync_Details__c = e.getMessage().left(255);
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkUpdate(
+                    Question_Answer__c.sObjectType, 
+                    new List<SObjectField> {
+                        Question_Answer__c.Sync_Status__c,
+                        Question_Answer__c.Sync_Details__c
+                    }
+                );
+                
                 database.update(insertedQuestions[0], false);
 // system.debug('*** In QuestionAnswerReplication.ReplicateInsertedRecordToArtisanOrg on exception after updating sync status to failed');
             }                    
@@ -127,6 +185,23 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
 	        Id customerQuestionRecordTypeId = Utils.GetCustomerQuestionAnswerRecordTypeId();
             
             // Retrieve the inserted record
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Question_Answer__c.sObjectType, 
+                new List<SObjectField> {
+                    Question_Answer__c.Id,
+                    Question_Answer__c.RecordTypeId,
+                    Question_Answer__c.Artisan_Question_Answer_Id__c, 
+                    Question_Answer__c.Name, 
+                    Question_Answer__c.Question__c, 
+                    Question_Answer__c.Answer__c,
+                    Question_Answer__c.Answered_by_Name__c, 
+                    Question_Answer__c.Answered_by_Email__c, 
+                    Question_Answer__c.Answered_by_Phone__c
+                }
+            );
+
             List<Question_Answer__c> updatedQuestions = [
                 Select RecordTypeId, Artisan_Question_Answer_Id__c, Id, Name, Question__c, Answer__c, Answered_by_Name__c, Answered_by_Email__c, Answered_by_Phone__c 
 				from Question_Answer__c READONLY 
@@ -174,6 +249,17 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
                 }
 
 // system.debug('*** In QuestionAnswerReplication.ReplicateUpdatedRecordToArtisanOrg handling update of Id [' + qaId + '] and artisanQAId [' + artisanQAId + ']');
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkRead(
+                    Question_Answer__c.sObjectType, 
+                    new List<SObjectField> {
+                        Question_Answer__c.Id,
+                        Question_Answer__c.Sync_Status__c,
+                        Question_Answer__c.Sync_Details__c
+                    }
+                );
+
                 updatedQuestions = [
                     Select Id, Sync_Status__c, Sync_Details__c 
                     from Question_Answer__c 
@@ -184,6 +270,16 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
                     // Update the record to indicate the sync succeeded
                     updatedQuestions[0].Sync_Status__c = 'Sync successful';
                     updatedQuestions[0].Sync_Details__c = 'Artisan Q&A Id=[' + artisanQAId + ']';
+
+                    //M.Witchalls for Security Review 18 Nov 2019
+                    SecurityUtils.checkUpdate(
+                        Question_Answer__c.sObjectType, 
+                        new List<SObjectField> {
+                            Question_Answer__c.Sync_Status__c,
+                            Question_Answer__c.Sync_Details__c
+                        }
+                    );
+
                     database.update(updatedQuestions[0],false);
                 }
             }  
@@ -192,6 +288,17 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
 // system.debug('*** In QuestionAnswerReplication.ReplicateUpdatedRecordToArtisanOrg exception ' + e.getMessage());
             
             // Update the record to indicate the sync failed
+
+            //M.Witchalls for Security Review 18 Nov 2019
+            SecurityUtils.checkRead(
+                Question_Answer__c.sObjectType, 
+                new List<SObjectField> {
+                    Question_Answer__c.Id,
+                    Question_Answer__c.Sync_Status__c,
+                    Question_Answer__c.Sync_Details__c
+                }
+            );
+
             List<Question_Answer__c> insertedQuestions = [
                 Select Id, Sync_Status__c, Sync_Details__c 
                 from Question_Answer__c 
@@ -200,6 +307,16 @@ public without sharing class QuestionAnswerReplication implements Queueable, Dat
 // system.debug('*** In QuestionAnswerReplication.ReplicateUpdatedRecordToArtisanOrg on exception about to update sync status to failed');
                 insertedQuestions[0].Sync_Status__c = 'Sync failed';
                 insertedQuestions[0].Sync_Details__c = e.getMessage().left(255);
+
+                //M.Witchalls for Security Review 18 Nov 2019
+                SecurityUtils.checkUpdate(
+                    Question_Answer__c.sObjectType, 
+                    new List<SObjectField> {
+                        Question_Answer__c.Sync_Status__c,
+                        Question_Answer__c.Sync_Details__c
+                    }
+                );
+
                 database.update(insertedQuestions[0], false);
 // system.debug('*** In QuestionAnswerReplication.ReplicateUpdatedRecordToArtisanOrg on exception after updating sync status to failed');
             }                    

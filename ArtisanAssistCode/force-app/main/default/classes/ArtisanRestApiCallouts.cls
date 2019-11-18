@@ -1183,7 +1183,18 @@ public without sharing class ArtisanRestApiCallouts {
         if ( reqId == null ){
         	throw new Utils.IntegrationException('Assistance_Request_Id__c not found in polled data');
         }
-        
+
+        //M.Witchalls for Security Review 18 Nov 2019
+        SecurityUtils.checkRead(
+            Assistance_Request__c.sObjectType, 
+            new List<SObjectField> {
+                Assistance_Request__c.Id,
+                Assistance_Request__c.Name,
+                Assistance_Request__c.Stage_Name__c,
+                Assistance_Request__c.Open_Question_Count__c 
+            }
+        );
+       
         List<Assistance_Request__c> reqForUpdate = [
             select Id, Stage_Name__c, Open_Question_Count__c
             From Assistance_Request__c
@@ -1246,6 +1257,7 @@ public without sharing class ArtisanRestApiCallouts {
         
         // Update data based on JSON response after the questions as any answers provided can alter the request stage
 //system.debug('*** Updating reqForUpdate [' + reqForUpdate + ']');
+
         update reqForUpdate;
 //system.debug('*** Updated reqForUpdate [' + reqForUpdate + ']');
 
