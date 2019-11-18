@@ -20,7 +20,9 @@ public with sharing class AssistanceRequestController {
             SecurityUtils.checkRead(
                 Assistance_Request__c.sObjectType, 
 			    new List<SObjectField> {
-                	Assistance_Request__c.Stage_Name__c
+                	//Assistance_Request__c.Stage_Name__c
+                    //M.Witchalls for Security Review 18 Nov 2019
+                	Assistance_Request__c.Id, Assistance_Request__c.Stage_Name__c
                 }
 		    );
             SecurityUtils.checkUpdate(
@@ -75,7 +77,14 @@ public with sharing class AssistanceRequestController {
         try {
             SecurityUtils.checkRead(
                 Assistance_Request__c.sObjectType, 
+			    //new List<SObjectField> {
+                //	Assistance_Request__c.Stage_Name__c,
+                //	Assistance_Request__c.IsActive__c,
+                //	Assistance_Request__c.Production_Deployment__c
+                //}
+                //M.Witchalls for Security Review 18 Nov 2019
 			    new List<SObjectField> {
+                	Assistance_Request__c.Id,
                 	Assistance_Request__c.Stage_Name__c,
                 	Assistance_Request__c.IsActive__c,
                 	Assistance_Request__c.Production_Deployment__c
